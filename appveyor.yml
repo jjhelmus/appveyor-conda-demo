@@ -32,7 +32,7 @@ install:
   - "conda list"
 
   # Create and activate conda environment
-  - "conda create -n matrix_env python=%PYTHON_VERSION%"
+  - "conda create -q -y -n matrix_env python=%PYTHON_VERSION%"
   - "activate matrix_env"
 
   # Check that we have the expected version and architecture for Python
