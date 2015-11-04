@@ -40,7 +40,7 @@ install:
 
   # Create and activate a conda environment with the desired Python version
   - "conda update --yes conda"
-  - "conda create --yes -n matrix_env python=%PYTHON_VERSION%"
+  - "conda create --yes -q -n matrix_env python=%PYTHON_VERSION%"
   - "activate matrix_env"
 
   # Check that we have the expected version and architecture for Python
