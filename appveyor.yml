@@ -11,14 +11,17 @@ environment:
     - PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "32"
 
-#      PYTHON_VERSION: "3.4"
-#      PYTHON_ARCH: "32"
+      PYTHON_VERSION: "3.4"
+      PYTHON_ARCH: "32"
 
-#      PYTHON_VERSION: "2.7"
-#      PYTHON_ARCH: "64"
+      PYTHON_VERSION: "2.7"
+      PYTHON_ARCH: "64"
 
-#      PYTHON_VERSION: "3.5"
-#      PYTHON_ARCH: "64"
+      PYTHON_VERSION: "3.4"
+      PYTHON_ARCH: "64"
+
+      PYTHON_VERSION: "3.5"
+      PYTHON_ARCH: "64"
 
 install:
   # install the appropriate Miniconda (Py2/Py3, 32/64 bit),
@@ -46,4 +49,4 @@ build: false
 
 test_script:
   # In a real case we would run the unit tests, here just Hello World
-  - "python -c \"print('Hello World!'))\" -v"
+  - "python -c \"print('Hello World!')\" -v"
