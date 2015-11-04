@@ -11,30 +11,35 @@ environment:
     - PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "32"
 
-    - PYTHON_VERSION: "3.4"
-      PYTHON_ARCH: "32"
-
+#    - PYTHON_VERSION: "3.4"
+#      PYTHON_ARCH: "32"
+#
     - PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "64"
-
-    - PYTHON_VERSION: "3.4"
-      PYTHON_ARCH: "64"
-
-    - PYTHON_VERSION: "3.5"
-      PYTHON_ARCH: "64"
+#
+#    - PYTHON_VERSION: "3.4"
+#      PYTHON_ARCH: "64"
+#
+#    - PYTHON_VERSION: "3.5"
+#      PYTHON_ARCH: "64"
 
 install:
-  # install the appropriate Miniconda (Py2/Py3, 32/64 bit),
-  - "powershell ./appveyor/install.ps1"
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PYTHON%\\Library\\bin;%PATH%"
-
-  # Check that we have the expected version and architecture for Python
+  # Use the pre-installed Miniconda for the desired arch
+  - ps: if($env:PYTHON_ARCH -eq '32') {
+          $env:path="C:\Miniconda;C:\Miniconda\Scripts;C:Miniconda\Library\bin;$($env:path)"
+        } 
+        else {
+          $env:path="C:\Miniconda-x64;C:\Miniconda-x64\Scripts;C:Miniconda-x64\Library\bin;$($env:path)"
+        }
+  
+  # check the setup 
+  - "SET PATH"
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
   - "conda info"  
   - "conda list"
 
-  # Create and activate conda environment
+  # Create and activate a conda environment with the desired Python version
   - "conda create -q -y -n matrix_env python=%PYTHON_VERSION%"
   - "activate matrix_env"
 
