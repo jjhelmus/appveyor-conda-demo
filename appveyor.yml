@@ -39,8 +39,8 @@ install:
   #- "conda list"
 
   # Create and activate a conda environment with the desired Python version
-  - "conda update --yes --quite conda"
-  - "conda create --yes --quite -n matrix_env python=%PYTHON_VERSION%"
+  - "conda update --yes --quiet conda"
+  - "conda create --yes --quiet -n matrix_env python=%PYTHON_VERSION%"
   - "activate matrix_env"
 
   # Check that we have the expected version and architecture for Python
